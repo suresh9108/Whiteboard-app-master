@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/drawing_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.kotlin.whiteboard_app_master.DrawingView
+        android:id="@+id/drawing_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_constraint"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bottom_constraint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <!-- Selection Tool Button -->
+        <ImageButton
+            android:id="@+id/selection_ib"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/selection_tool"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/fill_color_ib" />
+
+        <!-- Fill Color Button -->
+        <ImageButton
+            android:id="@+id/fill_color_ib"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/paint_bucket_solid_svgrepo_com"
+            android:scaleType="fitCenter"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/selection_ib"
+            app:layout_constraintEnd_toStartOf="@id/draw_ib" />
+
+        <!-- Draw Tool Button -->
+        <ImageButton
+            android:id="@+id/draw_ib"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/pencil_draw_svgrepo_com"
+            android:scaleType="fitCenter"
+            android:padding="12dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/fill_color_ib"
+            app:layout_constraintEnd_toStartOf="@id/eraser_ib" />
+
+        <!-- Eraser Tool Button -->
+        <ImageButton
+            android:id="@+id/eraser_ib"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/eraser_svgrepo_com"
+            android:scaleType="fitCenter"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/draw_ib"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Undo Button -->
+        <ImageButton
+            android:id="@+id/undo_ib"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/undo_svgrepo_com"
+            android:layout_marginTop="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/selection_ib"
+            app:layout_constraintStart_toStartOf="@+id/selection_ib"
+            app:layout_constraintTop_toBottomOf="@+id/selection_ib" />
+
+        <!-- Redo Button (Mirrored) -->
+        <ImageButton
+            android:id="@+id/redo_ib"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/undo_svgrepo_com"
+            android:scaleX="-1"
+            app:layout_constraintStart_toStartOf="@id/fill_color_ib"
+            app:layout_constraintEnd_toEndOf="@id/fill_color_ib"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <!-- Clear All Button -->
+        <ImageButton
+            android:id="@+id/clear_all_ib"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/baseline_clear_all_24"
+            app:layout_constraintStart_toStartOf="@id/draw_ib"
+            app:layout_constraintEnd_toEndOf="@id/draw_ib"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
